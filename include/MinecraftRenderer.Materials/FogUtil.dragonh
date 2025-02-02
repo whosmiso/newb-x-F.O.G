@@ -7,7 +7,7 @@
 //calculateFogIntensityFadedVanilla
 float calculateFogIntensity(float cameraDepth, float maxDistance, float fogStart, float fogEnd) { // #line 8
     float distance = cameraDepth / maxDistance;
-    return saturate((distance - fogStart) / (fogEnd - fogStart));
+    return saturate((distance - fogStart) / (fogEnd - fogStart) * 2.0);
 }
 //calculateFogIntensityFadedVanilla
 float calculateFogIntensityFaded(float cameraDepth, float maxDistance, float fogStart, float fogEnd, float fogAlpha) {
@@ -17,7 +17,8 @@ float calculateFogIntensityFaded(float cameraDepth, float maxDistance, float fog
 }
 //applyFogVanilla
 vec3 applyFog(vec3 diffuse, vec3 fogColor, float fogIntensity) {
-    return mix(diffuse, fogColor, fogIntensity);
+fogcolor = vec3(o.5, 0.5, 0.5);
+return mix(diffuse, fogColor, fogIntensity);
 }
 
 #endif // FOG_UTIL_H_HEADER_GUARD
